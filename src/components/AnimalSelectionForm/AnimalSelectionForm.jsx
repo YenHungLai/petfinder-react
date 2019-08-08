@@ -16,7 +16,7 @@ const AnimalSelectionForm = ({ animalTypes = [], setAnimalType }) => {
 	}, [value.animalType]);
 
 	return (
-		<div class='form-container'>
+		<div className='form-container'>
 			{animalTypes ? (
 				<Select
 					label='Animal Type'

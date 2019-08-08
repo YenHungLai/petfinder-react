@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import client from '../../petfinderConfig';
+import './Results.css';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Card from './Card';
@@ -8,8 +9,14 @@ import Grid from '@material-ui/core/Grid';
 
 // FIXME: how to use styles
 const useStyles = makeStyles(theme => ({
-	root: {
-		// flexGrow: 1
+	container: {
+		maxWidth: '95%',
+		margin: 'auto',
+		marginTop: '1rem'
+	},
+	item: {
+		marginBottom: '1rem',
+		maxHeight: '420px !important'
 	}
 }));
 
@@ -27,10 +34,11 @@ const Results = ({ animalType }) => {
 	const classes = useStyles();
 
 	return (
-		<Grid container spacing={2}>
+		<Grid container className={classes.container} spacing={2}>
 			{animals
 				? animals.map((animal, key) => (
-						<Grid item xs={3}>
+						// Use numbers divisible by 12(cols)?
+						<Grid item lg={2} md={3} sm={4} xs={12}  key={key} className={classes.item}>
 							<Card
 								img={
 									animal.photos.length !== 0
@@ -40,7 +48,6 @@ const Results = ({ animalType }) => {
 								name={animal.name}
 								gender={animal.gender}
 								age={animal.age}
-								key={key}
 							/>
 						</Grid>
 				  ))

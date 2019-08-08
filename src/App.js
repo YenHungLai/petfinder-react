@@ -2,7 +2,7 @@
  * TODO: 
  * - Implement React Router
  * - Grid layout for animal cards
- * - Figure where to put api calss
+ * - Figure where to put api calls
  */
 
 import React from 'react';
@@ -14,7 +14,6 @@ import './App.css';
 // Components
 import AppBar from './components/uiComponents/AppBar';
 import AnimalSelectionPage from './containers/AnimalSelectionPage/AnimalSelectionPage';
-import Results from './components/Results/Results';
 
 const theme = createMuiTheme({
 	palette: {
@@ -29,7 +28,6 @@ const App = () => {
 			<div>
 				<AppBar />
 				<AnimalSelectionPage />
-				<Results />
 			</div>
 		</ThemeProvider>
 	);

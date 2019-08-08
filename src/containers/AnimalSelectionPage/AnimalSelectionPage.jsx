@@ -3,11 +3,12 @@ import client from '../../petfinderConfig';
 
 // Components
 import AnimalSelectionForm from '../../components/AnimalSelectionForm/AnimalSelectionForm';
+import Results from '../../components/Results/Results';
 
 const AnimalSelectionPage = () => {
 	const [animalTypes, setAnimalTypes] = useState();
 
-	// When is this run?
+	// Runs as componentDidMount and componenWillUnmount
 	useEffect(() => {
 		console.log('useEffect here');
 		client.animalData.types().then(resp => {
@@ -20,6 +21,7 @@ const AnimalSelectionPage = () => {
 	return (
 		<div>
 			<AnimalSelectionForm animalTypes={animalTypes} />
+			<Results />
 		</div>
 	);
 };
