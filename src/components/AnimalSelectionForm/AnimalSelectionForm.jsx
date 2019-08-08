@@ -11,9 +11,14 @@ const AnimalSelectionForm = ({ animalTypes = [], setAnimalType }) => {
 
 	const animalNames = animalTypes.map(animal => animal.name);
 
-	React.useEffect(() => {
-		setAnimalType(value.animalType);
-	}, [value.animalType]);
+	const handleChange = e => {
+		console.log({ [e.target.name]: e.target.value });
+		setAnimalType(e.target.value);
+		setValue({
+			...value,
+			[e.target.name]: e.target.value
+		});
+	};
 
 	return (
 		<div className='form-container'>
@@ -23,7 +28,7 @@ const AnimalSelectionForm = ({ animalTypes = [], setAnimalType }) => {
 					data={animalNames}
 					name='animalType'
 					value={value}
-					setValue={setValue}
+					handleChange={handleChange}
 				/>
 			) : null}
 		</div>

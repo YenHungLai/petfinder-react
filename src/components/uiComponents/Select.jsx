@@ -13,16 +13,8 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-export default function SimpleSelect({ label, data, name, value, setValue }) {
+export default function SimpleSelect({ label, data, name, value, handleChange }) {
 	const classes = useStyles();
-
-	const handleChange = e => {
-		console.log({ [e.target.name]: e.target.value });
-		setValue({
-			...value,
-			[e.target.name]: e.target.value
-        });
-	};
 
 	return (
 		<FormControl className={classes.formControl}>
@@ -33,7 +25,7 @@ export default function SimpleSelect({ label, data, name, value, setValue }) {
 				inputProps={{ name }}
 			>
 				{data.map((item, key) => (
-					<MenuItem value={item.replace(/\s/g, '')} key={key}>
+					<MenuItem value={item} key={key}>
 						{item}
 					</MenuItem>
 				))}

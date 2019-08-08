@@ -1,8 +1,8 @@
 /**
  * TODO: 
  * - Implement React Router
- * - Grid layout for animal cards
  * - Figure where to put api calls
+ * - CORS error in production
  */
 
 import React from 'react';

@@ -10,7 +10,6 @@ const AnimalSelectionPage = () => {
 
 	// Runs as componentDidMount and componenWillUnmount
 	useEffect(() => {
-		console.log('useEffect here');
 		client.animalData.types().then(resp => {
 			// Do something with resp.data.types
 			console.log(resp.data.types);
