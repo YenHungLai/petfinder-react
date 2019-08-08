@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/**
+ * TODO: 
+ * - Implement React Router
+ * - Grid layout for animal cards
+ * - Figure where to put api calss
+ */
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import React from 'react';
+import { createMuiTheme, makeStyles } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+import deepPurple from '@material-ui/core/colors/deepPurple';
+import indigo from '@material-ui/core/colors/indigo';
+import './App.css';
+// Components
+import AppBar from './components/uiComponents/AppBar';
+import AnimalSelectionPage from './containers/AnimalSelectionPage/AnimalSelectionPage';
+import Results from './components/Results/Results';
+
+const theme = createMuiTheme({
+	palette: {
+		primary: deepPurple,
+		secondary: indigo
+	}
+});
+
+const App = () => {
+	return (
+		<ThemeProvider theme={theme}>
+			<div>
+				<AppBar />
+				<AnimalSelectionPage />
+				<Results />
+			</div>
+		</ThemeProvider>
+	);
+};
 
 export default App;
